@@ -1,39 +1,72 @@
 #include "vec2.h"
 
-int vec2::getCompx(){
-	return end.getx() - start.getx();
+
+
+				//constructors
+
+	//empty constructor
+vec2::vec2() {
+	x = 0;
+	y = 0;
 }
-int vec2::getCompy(){
-	return end.gety() - start.gety();
+	
+	//cartesian constructor
+vec2::vec2(int _x, int _y){		
+	x = _x;
+	y = _y;
 }
 
-//costruttore
-vec2::vec2(int startx, int starty, int endx, int endy){
-	start.set(startx, starty);
-	end.set(endx, endy);
-}
-vec2::vec2(){
-	start.set(0,0);
-	end.set(0,0);
+	//polar constructor
+vec2::vec2(float _angle, float _magnitude) {
+	x = cos(_angle)*_magnitude;
+	y = sin(_angle)*_magnitude;
 }
 
-void vec2::setup(point _s, point _e){
-	start.set(_s.getx(), _s.gety());
-	end.set(_e.getx(), _e.gety());
+				//methods
+
+int vec2::getx() {
+	return x;
 }
 
-float vec2::lenght(){
-	return(sqrt(start.getx()*start.getx()+start.gety()*start.gety()));
+int vec2::gety() {
+	return y;
+}
+//cartesian
+void vec2::set(int _x, int _y) {
+	x = _x;
+	y = _y;
+}
+//polar
+void vec2::set(float _angle, float _module) {
+	x = cos(_angle)*_magnitude;
+	y = sin(_angle)*_magnitude;
 }
 
-void vec2::add(vec2 b){
-	end.set(end.getx() + b.end.getx(), end.gety() + b.end.gety());
+
+
+void vec2::mul(float _m) {
+	x *= _m;
+	y *= _m;
 }
 
-void vec2::sub(vec2 b){
-	end.set(end.getx() - b.end.getx(), end.gety() - b.end.gety());
+void vec2::add(vec2 _adder) {
+	x += _adder.getx;
+	y += _adder.gety;
 }
 
-void vec2::mul(float _m){
-	end.set(end.getx() + (vec2::getCompx() * _m), end.gety() + ( vec2::getCompy() *  _m));
+
+void vec2::sub(vec2 _adder) {
+	x -= _adder.getx;
+	y -= _adder.gety;
+}
+
+
+
+float vec2::getAngle() {
+	return asin(y / vec2::getMagnitude());
+}
+
+
+float vec2::getMagnitude() {
+	return sqrt(x * x + y * y);
 }

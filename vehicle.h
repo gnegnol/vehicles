@@ -2,18 +2,20 @@
 #include "vec2.h"
 
 class vehicle{
-	point pos;
+	vec2 pos;
 	vec2 vel;
 	vec2 acc;
-	point target[2];
-	float desire[2];
+	vec2 target;
+	float desire;
 
-	public:
-		vehicle(point,point, vec2, point*, float, float);
+	vec2 getDesireVec(vec2);
 
-		void update(vec2, point, point);
+public:
 
-		vec2 getDesireVec(point, point, point);
+	vehicle(vec2, vec2, vec2, vec2, float);
+	vehicle(vec2, vec2, vec2, vec2);
 
-		point getPos();
+	void update(vec2, vec2);
+
+	vec2 getPos();
 };
