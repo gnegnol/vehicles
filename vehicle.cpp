@@ -8,7 +8,10 @@
 #endif // !Desire_MAX
 
 vec2 vehicle::getDesireVec(vec2 _food){
-	return _food.mul(desire);
+	vec2 result;
+	result=_food;
+	result.mul(desire);
+	return result;
 }
 
 vehicle::vehicle(vec2 _pos, vec2 _vel, vec2 _acc, vec2 _target, float _foodDesire) {

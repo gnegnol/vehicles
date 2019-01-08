@@ -38,8 +38,8 @@ void vec2::set(int _x, int _y) {
 }
 //polar
 void vec2::set(float _angle, float _module) {
-	x = cos(_angle)*_magnitude;
-	y = sin(_angle)*_magnitude;
+	x = cos(_angle)*_module;
+	y = sin(_angle)*_module;
 }
 
 
